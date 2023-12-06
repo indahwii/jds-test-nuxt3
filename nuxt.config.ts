@@ -6,6 +6,17 @@ export default defineNuxtConfig({
   //   }
   // },
 
+  nitro: {
+    preset: 'vercel-edge'
+  },
+
+  routeRules: {
+    '/examples/*': { redirect: '/redirect-route' },
+    '/modify-headers-route': { headers: { 'x-magic-of': 'nuxt and vercel' } },
+    // Enables client-side rendering
+    '/spa': { ssr: false },
+  },
+
 
   modules: ["@nuxtjs/tailwindcss"]
 })
